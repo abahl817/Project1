@@ -203,11 +203,8 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(String[] result){
             if(result != null){
-                movieAdapter.clear();
-                for(String abc : result){
-                    movieUrls.add(abc);
-                }
-                movieAdapter.add(movieUrls);
+                for(String abc : result)
+                    movieAdapter.add(result);
             }
         }
     }
