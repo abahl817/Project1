@@ -31,8 +31,6 @@ public class MainActivityFragment extends Fragment {
 
     private MovieIconAdapter movieAdapter;
 
-    ArrayList<String> movieUrls = new ArrayList<>();
-
     public MainActivityFragment() {
     }
     @Override
@@ -63,7 +61,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        movieAdapter = new MovieIconAdapter(getActivity(), movieUrls);
+        movieAdapter = new MovieIconAdapter(getActivity(), new ArrayList<String>());
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         GridView gridView = (GridView)rootView.findViewById(R.id.movie_grid);
