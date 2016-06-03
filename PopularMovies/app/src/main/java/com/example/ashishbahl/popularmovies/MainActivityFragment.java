@@ -131,15 +131,13 @@ public class MainActivityFragment extends Fragment {
                 /*final String BASE_URL = "http://api.themoviedb.org/3/discover/movie?";
                 final String QUERY_PARAM = "sort_by";// sorting parameter popularity or rating
                 final String APPID_PARAM = "api_key";
-
                 Uri builtUri = Uri.parse(BASE_URL).buildUpon()
                         .appendQueryParameter(QUERY_PARAM,params[0]) //String key , String value
                         .appendQueryParameter(APPID_PARAM,BuildConfig.THE_MOVIE_DATABASE_API_KEY)
                         .build();
-
                 URL url = new URL(builtUri.toString());*/
 
-                URL url = new URL("http://api.themoviedb.org/3/discover/movie?api_key=");
+                URL url = new URL("http://api.themoviedb.org/3/discover/movie?api_key=4a1e6d0b399a527d9ae0b4f25a19d5fa");
 
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -174,7 +172,8 @@ public class MainActivityFragment extends Fragment {
             catch (IOException e){
                 // If the code didn't successfully get the weather data, there's no point in attemping
                 // to parse it.
-                return null;
+                Log.e(LOG_TAG, e.getMessage(), e);
+                e.printStackTrace();
             } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
@@ -202,7 +201,8 @@ public class MainActivityFragment extends Fragment {
         protected void onPostExecute(String[] result){
             if(result != null){
                 for(String abc : result)
-                    movieAdapter.add(result);
+                    movieAdapter.add(abc);
+                movieAdapter.notifyDataSetChanged();
             }
         }
     }
