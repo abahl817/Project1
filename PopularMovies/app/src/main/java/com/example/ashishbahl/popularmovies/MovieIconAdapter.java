@@ -19,13 +19,13 @@ public class MovieIconAdapter extends ArrayAdapter {
     private Context context;
     private LayoutInflater inflater;
 
-    private String[] movUrls;
+    private ArrayList<String> movUrls = new ArrayList<String>();
 
     public MovieIconAdapter(Activity context, ArrayList<String> movieUrls){
         super(context,R.layout.movie_item,movieUrls);
 
         this.context=context;
-        this.movUrls = movieUrls.toArray(new String[movieUrls.size()]);
+        this.movUrls = movieUrls;
 
         inflater = LayoutInflater.from(context);
     }
@@ -44,7 +44,7 @@ public class MovieIconAdapter extends ArrayAdapter {
 
         Picasso
                 .with(context)
-                .load(movUrls[position])
+                .load(movUrls.get(position))
                 .fit() // will explain later
                 .into((ImageView) convertView);
         /*ImageView icon = (ImageView) convertView.findViewById(R.id.movie_image);
@@ -53,4 +53,3 @@ public class MovieIconAdapter extends ArrayAdapter {
         return convertView;
     }
 }
-
