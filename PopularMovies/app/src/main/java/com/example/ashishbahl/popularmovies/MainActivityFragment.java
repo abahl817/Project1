@@ -139,7 +139,7 @@ public class MainActivityFragment extends Fragment {
 
                 URL url = new URL(builtUri.toString());*/
 
-                URL url = new URL("http://api.themoviedb.org/3/discover/movie?api_key=4a1e6d0b399a527d9ae0b4f25a19d5fa");
+                URL url = new URL("http://api.themoviedb.org/3/discover/movie?api_key=");
 
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
